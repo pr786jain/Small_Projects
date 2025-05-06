@@ -1,3 +1,4 @@
+# pip install googletrans
 import asyncio
 from googletrans import Translator
 
