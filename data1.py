@@ -1,8 +1,21 @@
-#to use the async function in next file
+import asyncio
 from googletrans import Translator
 
-translator = Translator() 
-txt = 'comment allez vous ?'
+async def main():
+    translator = Translator() 
+    txt = 'Hello, how are you?'
 
-output = translator.translate(txt, dest='en')
-print(output.text)
+    # List of target languages
+    languages = {
+        'hi': 'Hindi',
+        'fr': 'French',
+        'es': 'Spanish',
+        'de': 'German'
+    }
+
+    for code, name in languages.items():
+        translation = await translator.translate(txt, dest=code)
+        print(f"{name}: {translation.text}")
+
+# Run the async function
+asyncio.run(main())
